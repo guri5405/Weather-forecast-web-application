@@ -11,3 +11,91 @@
 body {
   background: #86a5c5;
 }
+
+h1 {
+  background: #001f3f;
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 18px 0;
+  color: #fff;
+}
+
+h2{
+  font-weight: 750;
+}
+
+h3{
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.container {
+  display: flex;
+  gap: 35px;
+  padding: 30px;
+}
+
+.weather-input {
+  width: 550px;
+  
+}
+
+.weather-input input {
+  height: 46px;
+  width: 100%;
+  outline: none;
+  font-size: 1.07rem;
+  padding: 0 17px;
+  margin: 10px 0 20px 0;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+}
+
+.weather-input input:focus {
+  padding: 0 16px;
+  border: 2px solid #5372F0;
+}
+
+.weather-input .separator {
+  height: 1px;
+  width: 100%;
+  margin: 25px 0;
+  background: #BBBBBB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-input .separator::before{
+  content: "or";
+  color: #6C757D;
+  font-size: 1.18rem;
+  padding: 0 15px;
+  margin-top: -4px;
+  background: #E3F2FD;
+}
+
+.weather-input button {
+  width: 100%;
+  padding: 10px 0;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #fff;
+  background: #001f3f;
+  transition: 0.2s ease;
+}
+
+.weather-input .search-btn:hover {
+  background: #2c52ed;
+}
+
+.weather-input .location-btn {
+  background: #32495e;
+}
+
+.weather-input .location-btn:hover {
+  background: #5c636a;
+}
