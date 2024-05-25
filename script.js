@@ -98,6 +98,44 @@ const getUserCoordinates = () => {
         });
 }
 
+const dropdownMenu = document.getElementById("dropdownMenu");
+
+// Function to add a city to the dropdown and local storage
+const addCityToDropdown = (Name) => {
+    let cities = JSON.parse(localStorage.getItem('recentCities')) || [];
+    if (!cities.includes(Name)) {
+        cities.push(Name);
+        localStorage.setItem('recentCities', JSON.stringify(cities));
+    }
+    updateDropdownMenu();
+}
+
+// Function to update the dropdown menu with cities from local storage
+const updateDropdownMenu = () => {
+    const cities = JSON.parse(localStorage.getItem('recentCities')) || [];
+    dropdownMenu.innerHTML = '<option value="">Select a city</option>';
+    cities.forEach(city => {
+        const option = document.createElement('option');
+        option.value = city;
+        option.textContent = city;
+        dropdownMenu.appendChild(option);
+    });
+}
+
+// Event listener for when a city is selected from the dropdown
+dropdownMenu.addEventListener('change', () => {
+    const selectedCity = dropdownMenu.value;
+    if (selectedCity) {
+        cityInput.value = selectedCity;
+        getCityCoordinates();
+    }
+});
+
+// Call this function to populate the dropdown when the page loads
+updateDropdownMenu();
+
+
+
 locationButton.addEventListener("click", getUserCoordinates);
 searchButton.addEventListener("click", getCityCoordinates);
 cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());  
